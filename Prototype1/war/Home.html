@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+</head>
+<body>
+Hello World!
+
+<p id="demo"></p>
+
+<script>
+var text = '{"name":"Artist name","followers":"343066"}';
+
+var obj = JSON.parse(text);
+
+document.getElementById("demo").innerHTML =
+"<h1>" + obj.name + "</h1><br>" +
+obj.followers
+</script>
+</body>
+</html>
