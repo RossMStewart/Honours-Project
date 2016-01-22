@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Hello</title>
 </head>
 <body>
-<h2>Message: $(message)</h2>
+<h2>Message: ${message}</h2>
+<br>
+<h3></h3>
 </body>
 </html>

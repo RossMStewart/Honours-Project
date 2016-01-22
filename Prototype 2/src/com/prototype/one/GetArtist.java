@@ -47,7 +47,6 @@ public class GetArtist {
 	  } catch (MalformedURLException e) {
 
 		e.printStackTrace();
-		
 
 	  } catch (IOException e) {
 
