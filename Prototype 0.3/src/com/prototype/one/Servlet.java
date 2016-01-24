@@ -8,6 +8,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,11 +16,13 @@ import javax.servlet.http.HttpServletResponse;
 // [START example]
 @SuppressWarnings("serial")
 public class Servlet extends HttpServlet {
-
+	public static final String HTML_START="<html><head><title>Spotify Data</title>"
+			 + "<link rel=stylesheet type=text/css href=Stylesheet.css><body>";
+    public static final String HTML_END="</head></body></html>";
   @Override
   public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
     PrintWriter out = resp.getWriter();
-    out.println("Hello, world!!!");
+    out.println(HTML_START + "<h1>Spotify Web API Data</h1>"+HTML_END);
     
     try {
         String artist = ("Megadeth");
@@ -39,9 +42,10 @@ public class Servlet extends HttpServlet {
   //Displays the JSON data.
 	String output;
 	while ((output = br.readLine()) != null) {
-		out.println(output);
+    out.println(HTML_START + "<h3 style=color:blue;>"+ output +"</h3>"+HTML_END);
 	}
-
+	
+	
 	conn.disconnect();
 
 } catch (MalformedURLException e) {
@@ -60,4 +64,3 @@ public class Servlet extends HttpServlet {
 
 
 }
-
