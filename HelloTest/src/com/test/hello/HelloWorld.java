@@ -42,6 +42,7 @@ public class HelloWorld extends HttpServlet {
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Accept", "application/json");
+			
 
 			if (conn.getResponseCode() != 200) {
 				throw new RuntimeException("Failed : HTTP error code : "
@@ -53,7 +54,10 @@ public class HelloWorld extends HttpServlet {
 
 			String output;
 			while ((output = br.readLine()) != null) {
-				out.println(output);
+			String message = (output);
+		    request.setAttribute("message", message); // This will be available as ${message}
+		    request.getRequestDispatcher("/Hello.jsp").forward(request, response);
+		    return;
 			}
 
 			conn.disconnect();
@@ -61,16 +65,15 @@ public class HelloWorld extends HttpServlet {
 		  } catch (MalformedURLException e) {
 
 			e.printStackTrace();
-			out.println(e.getMessage());
+			//out.println(e.getMessage());
 
 		  } catch (IOException e) {
 
 			e.printStackTrace();
 
 		  }
-		/*String message = "Hello World";
-        request.setAttribute("message", message); // This will be available as ${message}
-        request.getRequestDispatcher("/Hello.jsp").forward(request, response);*/
+		
+        
 	}
 
 	/**

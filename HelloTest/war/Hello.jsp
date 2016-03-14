@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<p> ${message} </p>
+<h1>Hello</h1>
+<p> ${height} </p>
+<p> ${ex_url} </p>
+
 </body>
 </html>

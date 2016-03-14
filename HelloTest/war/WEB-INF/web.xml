@@ -6,11 +6,11 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 
 <servlet>
-        <servlet-name>SpotifyTest</servlet-name>
-        <servlet-class>com.test.hello.SpotifyTest</servlet-class>
+        <servlet-name>ParseTest</servlet-name>
+        <servlet-class>com.test.hello.ParseTest</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>SpotifyTest</servlet-name>
+        <servlet-name>ParseTest</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
   
