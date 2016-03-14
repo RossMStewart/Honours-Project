@@ -8,8 +8,8 @@
 </head>
 <body>
 <h1>Hello</h1>
-<p> ${height} </p>
-<p> ${ex_url} </p>
+<p> ${name} </p>
+
 
 </body>
 </html>

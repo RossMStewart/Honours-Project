@@ -14,6 +14,7 @@ import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
+import javax.json.JsonString;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -46,21 +47,34 @@ public class ParseTest extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//PrintWriter out = response.getWriter();
+		PrintWriter out = response.getWriter();
 		URL url = new URL("https://api.spotify.com/v1/artists/0OdUWJ0sBjDrqHygGUXeCF");
 		  try (InputStream is = url.openStream();
 		       JsonReader rdr = Json.createReader(is)) {
 		 
 		      JsonObject obj = rdr.readObject();
+		      out.print("Name: ");
+		   /* JsonString name = */ out.println(obj.getJsonString("name"));
+		      out.print("Genres: ");
+		      out.println(obj.getJsonArray("genres"));
 		      JsonArray results = obj.getJsonArray("images");
 		      for (JsonObject result : results.getValuesAs(JsonObject.class)) {
-		          int height = (result.getInt("height"));
-		          request.setAttribute("height", height);
+		    	  out.print("Height: ");
+		          out.println(result.getInt("height"));
+		          out.print("URL: ");
+		          out.println(result.getString("url"));
+		          out.print("Width: ");
+		          out.println(result.getInt("width"));
+		      
+		       {
+		         /* request.setAttribute("name", name);
 				  request.getRequestDispatcher("/Hello.jsp").forward(request, response);
-				  return;
+				  return; */
 		     }
 		 }
-    }
+		  }
+		}
+    
 	
 
 		             
