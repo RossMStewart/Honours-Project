@@ -1,15 +1,10 @@
 package com.test.hello;
 
-import java.awt.Event;
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-
+import java.net.URLEncoder;
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
@@ -20,68 +15,46 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-
-
-
-
-
-
 /**
- * Servlet implementation class SpotifyTest
+ * Servlet implementation class GetArtistDetails
  */
-public class ParseTest extends HttpServlet {
+public class GetArtists extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ParseTest() {
+    public GetArtists() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 	/**
-	 * @param out 
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		PrintWriter out = response.getWriter();
-		URL url = new URL("https://api.spotify.com/v1/artists/0OdUWJ0sBjDrqHygGUXeCF");
+		//PrintWriter out = response.getWriter();
+		String getartist = request.getParameter("artist");
+		String artist = (java.net.URLEncoder.encode(getartist));
+		URL url = new URL("https://api.spotify.com/v1/search?q="+ artist +"&type=artist");
 		  try (InputStream is = url.openStream();
 		       JsonReader rdr = Json.createReader(is)) {
 		 
 		      JsonObject obj = rdr.readObject();
-	          out.println(obj.getJsonObject("followers").getInt("total"));
-		      out.print("Name: ");
-		      out.println(obj.getJsonString("name"));
-		      out.print("Genres: ");
-		      out.println(obj.getJsonArray("genres"));
-		      JsonArray results = obj.getJsonArray("images");
-		      for (JsonObject result : results.getValuesAs(JsonObject.class)) {
-		    	  out.print("Height: ");
-		          out.println(result.getInt("height"));
-		          out.print("URL: ");
-		          out.println(result.getString("url"));
-		          out.print("Width: ");
-		          out.println(result.getInt("width"));
+		      JsonObject artists = obj.getJsonObject("artists");
+		      JsonArray items = artists.getJsonArray("items");
+		      for (JsonObject result : items.getValuesAs(JsonObject.class)) {	  
+		      JsonString name = result.getJsonString("name");
+		      int popularity = result.getInt("popularity");
 		      
-		       {
-		         /* request.setAttribute("name", name);
-				  request.getRequestDispatcher("/Hello.jsp").forward(request, response);
-				  return; */
-		     }
-		 }
-		  }
-	}
-		
-    
-	
-
-		             
-		         
-		    
+		      request.setAttribute("name", name);
+		      request.setAttribute("popularity", popularity);
+			  request.getRequestDispatcher("/Artists.jsp").forward(request, response);
+			  return;
+	 }
+		      }
+}
 	
 
 	/**
