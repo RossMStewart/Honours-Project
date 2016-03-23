@@ -4,10 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Result</title>
+<title>Details</title>
 </head>
 <body>
-<a href="GetArtistDetails?method=doGet&param1=${name}&param2=${artistid}"> ${name} </a><br>
+<p>Artist Name: ${artistname} </p>
+<p>Album Name: ${albumname} </p> <br>
+<p>Related Artist: ${relartname} </p>
 <a href="Search.jsp">Search Again</a>
 </body>
 </html>
