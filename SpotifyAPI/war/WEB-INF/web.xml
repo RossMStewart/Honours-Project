@@ -33,4 +33,14 @@
     <servlet-name>GetRelatedArtists</servlet-name>
     <url-pattern>/GetRelatedArtists</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetRelatedArtistDetails</display-name>
+    <servlet-name>GetRelatedArtistDetails</servlet-name>
+    <servlet-class>com.test.hello.GetRelatedArtistDetails</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetRelatedArtistDetails</servlet-name>
+    <url-pattern>/GetRelatedArtistDetails</url-pattern>
+  </servlet-mapping>
 </web-app>

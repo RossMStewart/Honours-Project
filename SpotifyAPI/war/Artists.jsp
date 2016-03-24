@@ -7,7 +7,7 @@
 <title>Result</title>
 </head>
 <body>
-<a href="GetArtistDetails?method=doGet&param1=${name}&param2=${artistid}"> ${name} </a><br>
+<p><a href="GetArtistDetails?method=doGet&param1=${name}&param2=${artistid}"> ${name} </a></p><br>
 <a href="Search.jsp">Search Again</a>
 </body>
 </html>

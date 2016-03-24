@@ -9,7 +9,7 @@
 <body>
 <p>Artist Name: ${artistname} </p>
 <p>Album Name: ${albumname} </p> <br>
-<p>Related Artist: ${relartname} </p>
+<p>Related Artist: <a href="GetRelatedArtistDetails?method=doGet&param1=${relartname}&param2=${relartistid}">${relartname} </a></p>
 <a href="Search.jsp">Search Again</a>
 </body>
 </html>

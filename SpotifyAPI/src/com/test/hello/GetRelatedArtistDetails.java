@@ -2,7 +2,6 @@ package com.test.hello;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.PrintWriter;
 import java.net.URL;
 
 import javax.json.Json;
@@ -15,18 +14,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.test.hello.GetArtistDetails;
-
 /**
- * Servlet implementation class GetRelatedArtists
+ * Servlet implementation class GetRelatedArtistDetails
  */
-public class GetRelatedArtists extends HttpServlet {
+public class GetRelatedArtistDetails extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetRelatedArtists() {
+    public GetRelatedArtistDetails() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,39 +33,34 @@ public class GetRelatedArtists extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//PrintWriter out = response.getWriter();
-		JsonString albumname = (JsonString)request.getAttribute("albumname");
-		
-		String artistid = (String)request.getAttribute("artistid");
-		String artistname = (String)request.getAttribute("artistname");
-		
-	    URL url = new URL(""+artistid+"/related-artists");
-		
+		String getrelartistname = request.getParameter("param1");
+	    String encoderelartistname = (java.net.URLEncoder.encode(getrelartistname));
+	    String getrelartistid = request.getParameter("param2");
+	    URL url = new URL("https://api.spotify.com/v1/search?q=album:*%20artist:"+ encoderelartistname +"&type=album" );
+		//out.print(artdetails);
+	    
 	    try (InputStream is = url.openStream();
 			       JsonReader rdr = Json.createReader(is)) {
 			 
 			      JsonObject obj = rdr.readObject();
-			      JsonArray artists = obj.getJsonArray("artists");
-			      for (JsonObject result : artists.getValuesAs(JsonObject.class)) {	  
-			      JsonString relartname = (result.getJsonString("name")); 
-			      JsonString relartistid = (result.getJsonString("href"));
+			      JsonObject artists = obj.getJsonObject("albums");
+			      JsonArray items = artists.getJsonArray("items");
+			      for (JsonObject result : items.getValuesAs(JsonObject.class)) {	  
+			      JsonString albumname = (result.getJsonString("name")); 
 			      
-			      request.setAttribute("relartistid", relartistid);
-			      request.setAttribute("artistname", artistname);
+			      String artistname = request.getParameter("param1");
+			     
+			  	  request.setAttribute("artistname", artistname);	    	   			       			      			
 			      request.setAttribute("albumname", albumname);
-			      request.setAttribute("relartname", relartname);
-				  request.getRequestDispatcher("/ArtistDetails.jsp").forward(request, response);
+			      request.setAttribute("artistid", getrelartistid);
+				  request.getRequestDispatcher("/GetArtistDetails").forward(request, response);
 				  return;
-			      }
-	    }
-			      }
-	    
 			    
-	    
-	    	    			     			      			      			      			 			    
-    
-	  
-	
+	    }
+		
+		
+	  }
+	    }
 	
 
 	/**
