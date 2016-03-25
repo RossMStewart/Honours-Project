@@ -1,15 +1,19 @@
-package com.test.hello;
+package com.spotify.api;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.Arrays;
+import java.util.List;
+
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
 import javax.json.JsonString;
+import javax.json.JsonValue;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -44,11 +48,11 @@ public class GetArtists extends HttpServlet {
 		      JsonObject obj = rdr.readObject();
 		      JsonObject artists = obj.getJsonObject("artists");
 		      JsonArray items = artists.getJsonArray("items");
-		      for (JsonObject result : items.getValuesAs(JsonObject.class)) {	  
+		      for (JsonObject result : items.getValuesAs(JsonObject.class)) {
 		      JsonString artistname = result.getJsonString("name");
 		      JsonString artistid = result.getJsonString("href");
-		      
-		      request.setAttribute("name", artistname);
+		    
+		      request.setAttribute("artistname", artistname);
 		      request.setAttribute("artistid", artistid);
 			  request.getRequestDispatcher("/Artists.jsp").forward(request, response);
 			  return;

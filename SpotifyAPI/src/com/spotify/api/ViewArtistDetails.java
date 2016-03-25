@@ -1,4 +1,4 @@
-package com.test.hello;
+package com.spotify.api;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,18 +15,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.test.hello.GetArtistDetails;
+import com.spotify.api.GetArtistDetails;
 
 /**
  * Servlet implementation class GetRelatedArtists
  */
-public class GetRelatedArtists extends HttpServlet {
+public class ViewArtistDetails extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetRelatedArtists() {
+    public ViewArtistDetails() {
         super();
         // TODO Auto-generated constructor stub
     }

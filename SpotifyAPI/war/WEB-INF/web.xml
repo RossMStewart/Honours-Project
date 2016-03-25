@@ -4,7 +4,7 @@
     <description></description>
     <display-name>GetArtists</display-name>
     <servlet-name>GetArtists</servlet-name>
-    <servlet-class>com.test.hello.GetArtists</servlet-class>
+    <servlet-class>com.spotify.api.GetArtists</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>GetArtists</servlet-name>
@@ -17,7 +17,7 @@
     <description></description>
     <display-name>GetArtistDetails</display-name>
     <servlet-name>GetArtistDetails</servlet-name>
-    <servlet-class>com.test.hello.GetArtistDetails</servlet-class>
+    <servlet-class>com.spotify.api.GetArtistDetails</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>GetArtistDetails</servlet-name>
@@ -25,19 +25,19 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>GetRelatedArtists</display-name>
-    <servlet-name>GetRelatedArtists</servlet-name>
-    <servlet-class>com.test.hello.GetRelatedArtists</servlet-class>
+    <display-name>ViewArtistDetails</display-name>
+    <servlet-name>ViewArtistDetails</servlet-name>
+    <servlet-class>com.spotify.api.ViewArtistDetails</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>GetRelatedArtists</servlet-name>
-    <url-pattern>/GetRelatedArtists</url-pattern>
+    <servlet-name>ViewArtistDetails</servlet-name>
+    <url-pattern>/ViewArtistDetails</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>GetRelatedArtistDetails</display-name>
     <servlet-name>GetRelatedArtistDetails</servlet-name>
-    <servlet-class>com.test.hello.GetRelatedArtistDetails</servlet-class>
+    <servlet-class>com.spotify.api.GetRelatedArtistDetails</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>GetRelatedArtistDetails</servlet-name>

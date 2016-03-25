@@ -1,7 +1,8 @@
-package com.test.hello;
+package com.spotify.api;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.net.URL;
 
 import javax.json.Json;
@@ -15,15 +16,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class GetRelatedArtistDetails
+ * Servlet implementation class GetArtistDetails
  */
-public class GetRelatedArtistDetails extends HttpServlet {
+public class GetArtistDetails extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetRelatedArtistDetails() {
+    public GetArtistDetails() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,10 +34,10 @@ public class GetRelatedArtistDetails extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String getrelartistname = request.getParameter("param1");
-	    String encoderelartistname = (java.net.URLEncoder.encode(getrelartistname));
-	    String getrelartistid = request.getParameter("param2");
-	    URL url = new URL("https://api.spotify.com/v1/search?q=album:*%20artist:"+ encoderelartistname +"&type=album" );
+		String getartistname = request.getParameter("param1");
+	    String encodeartistname = (java.net.URLEncoder.encode(getartistname));
+	    String getartistid = request.getParameter("param2");
+	    URL url = new URL("https://api.spotify.com/v1/search?q=album:*%20artist:"+ encodeartistname +"&type=album" );
 		//out.print(artdetails);
 	    
 	    try (InputStream is = url.openStream();
@@ -52,8 +53,8 @@ public class GetRelatedArtistDetails extends HttpServlet {
 			     
 			  	  request.setAttribute("artistname", artistname);	    	   			       			      			
 			      request.setAttribute("albumname", albumname);
-			      request.setAttribute("artistid", getrelartistid);
-				  request.getRequestDispatcher("/GetArtistDetails").forward(request, response);
+			      request.setAttribute("artistid", getartistid);
+				  request.getRequestDispatcher("/ViewArtistDetails").forward(request, response);
 				  return;
 			    
 	    }
@@ -61,6 +62,8 @@ public class GetRelatedArtistDetails extends HttpServlet {
 		
 	  }
 	    }
+	    
+	    
 	
 
 	/**
