@@ -10,7 +10,9 @@
 <title>Result</title>
 </head>
 <body>
-<a href="GetArtistDetails?method=doGet&param1=${artistname}&param2=${artistid}"> ${artistname} </a>
+<c:forEach var="artist" items="${artistList}">
+<p><a href="GetArtistDetails?method=doGet&param1=${artist.name}&param2=${artist.href}"> ${artist.name} </a></p>
+</c:forEach>
 <br>
 <a href="Search.jsp">Search Again</a>
 </body>

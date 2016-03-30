@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
 import java.net.URL;
+import java.util.List;
 
 import javax.json.Json;
 import javax.json.JsonArray;
@@ -34,10 +35,11 @@ public class ViewArtistDetails extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@SuppressWarnings("unchecked")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//PrintWriter out = response.getWriter();
-		JsonString albumname = (JsonString)request.getAttribute("albumname");
+		List<JsonObject> albumList = (List<JsonObject>)request.getAttribute("albumList");
 		
 		String artistid = (String)request.getAttribute("artistid");
 		String artistname = (String)request.getAttribute("artistname");
@@ -49,19 +51,18 @@ public class ViewArtistDetails extends HttpServlet {
 			 
 			      JsonObject obj = rdr.readObject();
 			      JsonArray artists = obj.getJsonArray("artists");
-			      for (JsonObject result : artists.getValuesAs(JsonObject.class)) {	  
-			      JsonString relartname = (result.getJsonString("name")); 
-			      JsonString relartistid = (result.getJsonString("href"));
+			      List<JsonObject> relartistList = artists.getValuesAs(JsonObject.class); 	  
 			      
-			      request.setAttribute("relartistid", relartistid);
-			      request.setAttribute("artistname", artistname);
-			      request.setAttribute("albumname", albumname);
-			      request.setAttribute("relartname", relartname);
+			      
+			      
+			      request.setAttribute("artistname", artistname);			      
+			      request.setAttribute("albumList", albumList);
+			      request.setAttribute("relartistList", relartistList);
 				  request.getRequestDispatcher("/ArtistDetails.jsp").forward(request, response);
-				  return;
+				  
 			      }
 	    }
-			      }
+			      
 	    
 			    
 	    

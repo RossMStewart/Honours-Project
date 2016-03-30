@@ -9,7 +9,7 @@
 <body>
 <form action="/GetArtists" method="GET">
     Please enter artist name: 
-    <input type="text" name="artist" />
+    <input type="text" name="artist" required>
     <br />
     <input type="submit" value="Submit" />
 </form>

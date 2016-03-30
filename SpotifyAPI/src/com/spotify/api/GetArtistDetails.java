@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
 import java.net.URL;
+import java.util.List;
 
 import javax.json.Json;
 import javax.json.JsonArray;
@@ -36,32 +37,34 @@ public class GetArtistDetails extends HttpServlet {
 		// TODO Auto-generated method stub
 		String getartistname = request.getParameter("param1");
 	    String encodeartistname = (java.net.URLEncoder.encode(getartistname));
-	    String getartistid = request.getParameter("param2");
+	    
 	    URL url = new URL("https://api.spotify.com/v1/search?q=album:*%20artist:"+ encodeartistname +"&type=album" );
-		//out.print(artdetails);
+		
 	    
 	    try (InputStream is = url.openStream();
 			       JsonReader rdr = Json.createReader(is)) {
 			 
 			      JsonObject obj = rdr.readObject();
-			      JsonObject artists = obj.getJsonObject("albums");
-			      JsonArray items = artists.getJsonArray("items");
-			      for (JsonObject result : items.getValuesAs(JsonObject.class)) {	  
-			      JsonString albumname = (result.getJsonString("name")); 
+			      JsonObject albums = obj.getJsonObject("albums");
+			     
+			      JsonArray items = albums.getJsonArray("items");			      
+			      List<JsonObject> albumList = items.getValuesAs(JsonObject.class);
+			      
 			      
 			      String artistname = request.getParameter("param1");
+			      String getartistid = request.getParameter("param2");
 			     
+			      request.setAttribute("albumList", albumList);				     
 			  	  request.setAttribute("artistname", artistname);	    	   			       			      			
-			      request.setAttribute("albumname", albumname);
 			      request.setAttribute("artistid", getartistid);
 				  request.getRequestDispatcher("/ViewArtistDetails").forward(request, response);
-				  return;
+				 
 			    
 	    }
 		
 		
 	  }
-	    }
+	    
 	    
 	    
 	
