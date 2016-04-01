@@ -9,9 +9,9 @@
 </head>
 <body>
 <form action="/GetArtists" method="GET">
-<fieldset id="input_data">
+<fieldset id="artist_search">
 <legend>Search for Artist</legend>   
-    <input type="text" name="artist" value="Enter Artist Name" required>
+    <input type="text" name="artist" required>
     <br>
     <br>
     <input type="submit" value="Submit" />

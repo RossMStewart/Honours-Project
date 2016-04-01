@@ -6,12 +6,53 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Result</title>
+<link rel="stylesheet" type="text/css" href="Stylesheet.css">
 </head>
 <body>
-<c:forEach var="artistlist" items="${artistList}">
-<p><a href="GetArtistDetails?method=doGet&param1=${artistlist.name}&param2=${artistlist.href}"> ${artistlist.name} </a></p>
+<p id="search_again"><a href="Search.jsp">Search Again</a></p>
+<div class="center">
+<ul id="artistresults">
+<c:forEach var="artistlist" items="${artistList}" end="2">
+<li><a href="GetArtistDetails?method=doGet&param1=${artistlist.name}&param2=${artistlist.href}"> ${artistlist.name} </a></li>
 </c:forEach>
+</ul>
 <br>
-<a href="Search.jsp">Search Again</a>
+<ul id="artistresults">
+<c:forEach var="artistlist" items="${artistList}" begin="3" end="5">
+<li><a href="GetArtistDetails?method=doGet&param1=${artistlist.name}&param2=${artistlist.href}"> ${artistlist.name} </a></li>
+</c:forEach>
+</ul>
+<br>
+<ul id="artistresults">
+<c:forEach var="artistlist" items="${artistList}" begin="6" end="8">
+<li><a href="GetArtistDetails?method=doGet&param1=${artistlist.name}&param2=${artistlist.href}"> ${artistlist.name} </a></li>
+</c:forEach>
+</ul>
+<br>
+<ul id="artistresults">
+<c:forEach var="artistlist" items="${artistList}" begin="9" end="11">
+<li><a href="GetArtistDetails?method=doGet&param1=${artistlist.name}&param2=${artistlist.href}"> ${artistlist.name} </a></li>
+</c:forEach>
+</ul>
+<br>
+<ul id="artistresults">
+<c:forEach var="artistlist" items="${artistList}" begin="12" end="14">
+<li><a href="GetArtistDetails?method=doGet&param1=${artistlist.name}&param2=${artistlist.href}"> ${artistlist.name} </a></li>
+</c:forEach>
+</ul>
+<br>
+<ul id="artistresults">
+<c:forEach var="artistlist" items="${artistList}" begin="15" end="17">
+<li><a href="GetArtistDetails?method=doGet&param1=${artistlist.name}&param2=${artistlist.href}"> ${artistlist.name} </a></li>
+</c:forEach>
+</ul>
+<br>
+<ul id="artistresults">
+<c:forEach var="artistlist" items="${artistList}" begin="18" end="19">
+<li><a href="GetArtistDetails?method=doGet&param1=${artistlist.name}&param2=${artistlist.href}"> ${artistlist.name} </a></li>
+</c:forEach>
+</ul>
+<br>
+</div>
 </body>
 </html>
