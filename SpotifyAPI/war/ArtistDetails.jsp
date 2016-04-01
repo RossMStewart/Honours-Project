@@ -6,19 +6,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Details</title>
+<link rel="stylesheet" type="text/css" href="Stylesheet.css">
 </head>
 <body>
 <a href="Search.jsp">Search Again</a>
-<p>Artist Name: ${artistname} </p>
+<h1>${artistname} </h1>
 <c:forEach var="albumlist" items="${albumList}">
 <c:forEach var="image" items="${albumlist.images}" end="0">
-<p>Album Name: ${albumlist.name}</p>
+<p>${albumlist.name}</p>
 <p><img src="${image.url}" width="300" height="300"></p><br/>
 </c:forEach>
 </c:forEach>
+
 <c:forEach var="relartist" items="${relartistList}">
 <p>Related Artist: <a href="GetRelatedArtistDetails?method=doGet&param1=${relartist.name}&param2=${relartist.href}">${relartist.name} </a></p>
 </c:forEach>
 <a href="Search.jsp">Search Again</a>
+
+
 </body>
 </html>
