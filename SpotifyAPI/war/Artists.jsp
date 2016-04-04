@@ -13,43 +13,43 @@
 <div class="center">
 <ul id="artistresults">
 <c:forEach var="artistlist" items="${artistList}" end="2">
-<li><a href="GetArtistDetails?method=doGet&param1=${artistlist.name}&param2=${artistlist.href}"> ${artistlist.name} </a></li>
+<li><a href="GetArtistDetails?method=doGet&param1=${artistlist.name}&param2=${artistlist.href}&param3=${artistlist.id}"> ${artistlist.name} </a></li>
 </c:forEach>
 </ul>
 <br>
 <ul id="artistresults">
 <c:forEach var="artistlist" items="${artistList}" begin="3" end="5">
-<li><a href="GetArtistDetails?method=doGet&param1=${artistlist.name}&param2=${artistlist.href}"> ${artistlist.name} </a></li>
+<li><a href="GetArtistDetails?method=doGet&param1=${artistlist.name}&param2=${artistlist.href}&param3=${artistlist.id}"> ${artistlist.name} </a></li>
 </c:forEach>
 </ul>
 <br>
 <ul id="artistresults">
 <c:forEach var="artistlist" items="${artistList}" begin="6" end="8">
-<li><a href="GetArtistDetails?method=doGet&param1=${artistlist.name}&param2=${artistlist.href}"> ${artistlist.name} </a></li>
+<li><a href="GetArtistDetails?method=doGet&param1=${artistlist.name}&param2=${artistlist.href}&param3=${artistlist.id}"> ${artistlist.name} </a></li>
 </c:forEach>
 </ul>
 <br>
 <ul id="artistresults">
 <c:forEach var="artistlist" items="${artistList}" begin="9" end="11">
-<li><a href="GetArtistDetails?method=doGet&param1=${artistlist.name}&param2=${artistlist.href}"> ${artistlist.name} </a></li>
+<li><a href="GetArtistDetails?method=doGet&param1=${artistlist.name}&param2=${artistlist.href}&param3=${artistlist.id}"> ${artistlist.name} </a></li>
 </c:forEach>
 </ul>
 <br>
 <ul id="artistresults">
 <c:forEach var="artistlist" items="${artistList}" begin="12" end="14">
-<li><a href="GetArtistDetails?method=doGet&param1=${artistlist.name}&param2=${artistlist.href}"> ${artistlist.name} </a></li>
+<li><a href="GetArtistDetails?method=doGet&param1=${artistlist.name}&param2=${artistlist.href}&param3=${artistlist.id}"> ${artistlist.name} </a></li>
 </c:forEach>
 </ul>
 <br>
 <ul id="artistresults">
 <c:forEach var="artistlist" items="${artistList}" begin="15" end="17">
-<li><a href="GetArtistDetails?method=doGet&param1=${artistlist.name}&param2=${artistlist.href}"> ${artistlist.name} </a></li>
+<li><a href="GetArtistDetails?method=doGet&param1=${artistlist.name}&param2=${artistlist.href}&param3=${artistlist.id}"> ${artistlist.name} </a></li>
 </c:forEach>
 </ul>
 <br>
 <ul id="artistresults">
 <c:forEach var="artistlist" items="${artistList}" begin="18" end="19">
-<li><a href="GetArtistDetails?method=doGet&param1=${artistlist.name}&param2=${artistlist.href}"> ${artistlist.name} </a></li>
+<li><a href="GetArtistDetails?method=doGet&param1=${artistlist.name}&param2=${artistlist.href}&param3=${artistlist.id}"> ${artistlist.name} </a></li>
 </c:forEach>
 </ul>
 <br>

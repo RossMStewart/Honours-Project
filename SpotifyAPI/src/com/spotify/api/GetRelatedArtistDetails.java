@@ -35,16 +35,16 @@ public class GetRelatedArtistDetails extends HttpServlet {
 		// TODO Auto-generated method stub
 		String getrelartistname = request.getParameter("param1");
 	    String encoderelartistname = (java.net.URLEncoder.encode(getrelartistname));
-	    String getrelartistid = request.getParameter("param2");
-	    URL url = new URL("https://api.spotify.com/v1/search?q=album:*%20artist:"+ encoderelartistname +"&type=album" );
+	    String getrelartistid = request.getParameter("param3");
+	    URL url = new URL("https://api.spotify.com/v1/artists/"+ getrelartistid +"/albums?market=GB" );
 		//out.print(artdetails);
 	    
 	    try (InputStream is = url.openStream();
 			       JsonReader rdr = Json.createReader(is)) {
 			 
 			      JsonObject obj = rdr.readObject();
-			      JsonObject artists = obj.getJsonObject("albums");
-			      JsonArray items = artists.getJsonArray("items");
+			      //JsonObject artists = obj.getJsonObject("albums");
+			      JsonArray items = obj.getJsonArray("items");
 			      for (JsonObject result : items.getValuesAs(JsonObject.class)) {	  
 			      JsonString albumname = (result.getJsonString("name")); 
 			      

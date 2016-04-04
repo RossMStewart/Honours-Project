@@ -35,28 +35,30 @@ public class GetArtistDetails extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String getartistname = request.getParameter("param1");
-	    String encodeartistname = (java.net.URLEncoder.encode(getartistname));
+		String getartistid = request.getParameter("param3");
+	    //String encodeartistname = (java.net.URLEncoder.encode(getartistname));
 	    
-	    URL url = new URL("https://api.spotify.com/v1/search?q=album:*%20artist:"+ encodeartistname +"&type=album" );
+	    URL url = new URL("https://api.spotify.com/v1/artists/"+ getartistid +"/albums?market=GB");
 		
 	    
 	    try (InputStream is = url.openStream();
 			       JsonReader rdr = Json.createReader(is)) {
 			 
 			      JsonObject obj = rdr.readObject();
-			      JsonObject albums = obj.getJsonObject("albums");
 			     
-			      JsonArray items = albums.getJsonArray("items");			      
+			      JsonArray items = obj.getJsonArray("items");			      
 			      List<JsonObject> albumList = items.getValuesAs(JsonObject.class);
 			      
 			      
 			      String artistname = request.getParameter("param1");
-			      String getartistid = request.getParameter("param2");
+			      String artisthref = request.getParameter("param2");
+			      String artistid = request.getParameter("param3");
+			      
 			     
-			      request.setAttribute("albumList", albumList);				     
-			  	  request.setAttribute("artistname", artistname);	    	   			       			      			
-			      request.setAttribute("artistid", getartistid);
+			      request.setAttribute("albumList", albumList);	
+			      request.setAttribute("artistname", artistname);
+			  	  request.setAttribute("artistid", artistid);	    	   			       			      			
+			      request.setAttribute("artisthref", artisthref);
 				  request.getRequestDispatcher("/ViewArtistDetails").forward(request, response);
 				 
 			    

@@ -41,10 +41,11 @@ public class ViewArtistDetails extends HttpServlet {
 		//PrintWriter out = response.getWriter();
 		List<JsonObject> albumList = (List<JsonObject>)request.getAttribute("albumList");
 		
-		String artistid = (String)request.getAttribute("artistid");
+		String artisthref = (String)request.getAttribute("artisthref");
 		String artistname = (String)request.getAttribute("artistname");
 		
-	    URL url = new URL(""+artistid+"/related-artists");
+		
+	    URL url = new URL(""+artisthref+"/related-artists");
 		
 	    try (InputStream is = url.openStream();
 			       JsonReader rdr = Json.createReader(is)) {

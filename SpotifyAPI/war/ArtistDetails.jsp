@@ -9,20 +9,183 @@
 <link rel="stylesheet" type="text/css" href="Stylesheet.css">
 </head>
 <body>
-<a href="Search.jsp">Search Again</a>
+<p id="search_again"><a href="Search.jsp">Search Again</a></p>
 <h1>${artistname} </h1>
-<c:forEach var="albumlist" items="${albumList}">
+<div id="albumlistheader">
+<h1 id=albumheader>Albums</h1>
+</div>
+
+<div class="center">
+<c:forEach var="albumlist" items="${albumList}" end="2">
 <c:forEach var="image" items="${albumlist.images}" end="0">
-<p>${albumlist.name}</p>
-<p><img src="${image.url}" width="300" height="300"></p><br/>
+<ul id="albums">
+<div class="img-with-text">
+<li><img src="${image.url}" width="300" height="300"></li>
+<li>${albumlist.name}</li>
+</div>
+</ul>
 </c:forEach>
 </c:forEach>
 
-<c:forEach var="relartist" items="${relartistList}">
-<p>Related Artist: <a href="GetRelatedArtistDetails?method=doGet&param1=${relartist.name}&param2=${relartist.href}">${relartist.name} </a></p>
-</c:forEach>
-<a href="Search.jsp">Search Again</a>
+<br>
+<br>
 
+<c:forEach var="albumlist" items="${albumList}" begin="3" end="5">
+<c:forEach var="image" items="${albumlist.images}" end="0">
+<ul id="albums">
+<div class="img-with-text">
+<li><img src="${image.url}" width="300" height="300"></li>
+<li>${albumlist.name}</li>
+</div>
+</ul>
+</c:forEach>
+</c:forEach>
+
+<br>
+<br>
+
+<c:forEach var="albumlist" items="${albumList}" begin="6" end="8">
+<c:forEach var="image" items="${albumlist.images}" end="0">
+<ul id="albums">
+<div class="img-with-text">
+<li><img src="${image.url}" width="300" height="300"></li>
+<li>${albumlist.name}</li>
+</div>
+</ul>
+</c:forEach>
+</c:forEach>
+
+<br>
+<br>
+
+<c:forEach var="albumlist" items="${albumList}" begin="9" end="11">
+<c:forEach var="image" items="${albumlist.images}" end="0">
+<ul id="albums">
+<div class="img-with-text">
+<li><img src="${image.url}" width="300" height="300"></li>
+<li>${albumlist.name}</li>
+</div>
+</ul>
+</c:forEach>
+</c:forEach>
+
+<br>
+<br>
+
+<c:forEach var="albumlist" items="${albumList}" begin="12" end="14">
+<c:forEach var="image" items="${albumlist.images}" end="0">
+<ul id="albums">
+<div class="img-with-text">
+<li><img src="${image.url}" width="300" height="300"></li>
+<li>${albumlist.name}</li>
+</div>
+</ul>
+</c:forEach>
+</c:forEach>
+
+<br>
+<br>
+
+<c:forEach var="albumlist" items="${albumList}" begin="15" end="17">
+<c:forEach var="image" items="${albumlist.images}" end="0">
+<ul id="albums">
+<div class="img-with-text">
+<li><img src="${image.url}" width="300" height="300"></li>
+<li>${albumlist.name}</li>
+</div>
+</ul>
+</c:forEach>
+</c:forEach>
+
+<br>
+<br>
+
+<c:forEach var="albumlist" items="${albumList}" begin="18" end="19">
+<c:forEach var="image" items="${albumlist.images}" end="0">
+<ul id="albums">
+<div class="img-with-text">
+<li><img src="${image.url}" width="300" height="300"></li>
+<li>${albumlist.name}</li>
+</div>
+</ul>
+</c:forEach>
+</c:forEach>
+
+<br>
+<br>
+
+</div>
+
+
+<h1 id="relatedheader">Related Artists</h1>
+
+<div class="center">
+<ul id="artistresults">
+<c:forEach var="relartist" items="${relartistList}" end="2">
+<li><a href="GetRelatedArtistDetails?method=doGet&param1=${relartist.name}&param2=${relartist.href}&param3=${relartist.id}">${relartist.name} </a></li>
+</c:forEach>
+</ul>
+
+<br>
+<br>
+
+<ul id="artistresults">
+<c:forEach var="relartist" items="${relartistList}" begin="3" end="5">
+<li><a href="GetRelatedArtistDetails?method=doGet&param1=${relartist.name}&param2=${relartist.href}&param3=${relartist.id}">${relartist.name} </a></li>
+</c:forEach>
+</ul>
+
+<br>
+<br>
+
+<ul id="artistresults">
+<c:forEach var="relartist" items="${relartistList}" begin="6" end="8">
+<li><a href="GetRelatedArtistDetails?method=doGet&param1=${relartist.name}&param2=${relartist.href}&param3=${relartist.id}">${relartist.name} </a></li>
+</c:forEach>
+</ul>
+
+<br>
+<br>
+
+<ul id="artistresults">
+<c:forEach var="relartist" items="${relartistList}" begin="9" end="11">
+<li><a href="GetRelatedArtistDetails?method=doGet&param1=${relartist.name}&param2=${relartist.href}&param3=${relartist.id}">${relartist.name} </a></li>
+</c:forEach>
+</ul>
+
+<br>
+<br>
+
+<ul id="artistresults">
+<c:forEach var="relartist" items="${relartistList}" begin="12" end="14">
+<li><a href="GetRelatedArtistDetails?method=doGet&param1=${relartist.name}&param2=${relartist.href}&param3=${relartist.id}">${relartist.name} </a></li>
+</c:forEach>
+</ul>
+
+<br>
+<br>
+
+<ul id="artistresults">
+<c:forEach var="relartist" items="${relartistList}" begin="15" end="17">
+<li><a href="GetRelatedArtistDetails?method=doGet&param1=${relartist.name}&param2=${relartist.href}&param3=${relartist.id}">${relartist.name} </a></li>
+</c:forEach>
+</ul>
+
+<br>
+<br>
+
+<ul id="artistresults">
+<c:forEach var="relartist" items="${relartistList}" begin="18" end="19">
+<li><a href="GetRelatedArtistDetails?method=doGet&param1=${relartist.name}&param2=${relartist.href}&param3=${relartist.id}">${relartist.name} </a></li>
+</c:forEach>
+</ul>
+
+<br>
+<br>
+
+</div>
+
+<p id="search_again"><a href="Search.jsp">Search Again</a></p>
 
 </body>
 </html>

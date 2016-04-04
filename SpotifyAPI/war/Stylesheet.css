@@ -15,7 +15,19 @@ h1
 	font-family:Arial,Helvetica,sans-serif;
 }
 
- 
+#albumheader
+{
+	text-align:left;
+	border-bottom-style:solid;
+    border-width:1px;
+} 
+
+#relatedheader
+{
+	text-align:left;
+	border-bottom-style:solid;
+    border-width:1px;
+} 
 .topcorner
 {
 position:absolute;
@@ -75,7 +87,7 @@ margin-top:50px;
 
 #artistresults li a:hover, #artistresults li a:active
 {
- color:#000000;
+ color:#ffffff;
  background-color:#008000;
 } 
 
@@ -109,6 +121,42 @@ width:150px;
 {
   float:center;
   display:inline;
+}
+
+#albumlistheader
+{
+	display:block;
+}
+
+#albums
+{
+ color:#000000;
+ font-family:sans-serif;
+ margin:0 auto;
+ display:inline-block;
+ list-style-type:none;
+ padding:0;
+ overflow:hidden;
+} 
+
+#albums li
+{
+  float:center;
+  display:inline;
+}
+
+ .img-with-text 
+ {
+  text-align:center;
+  width:300px;
+ 
+}
+
+ .img-with-text img
+{
+  display:block;
+  margin: 0 auto;
+  padding: 0;
 }
 
  .artistname 
