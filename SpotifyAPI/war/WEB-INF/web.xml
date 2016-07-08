@@ -35,12 +35,12 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>GetRelatedArtistDetails</display-name>
-    <servlet-name>GetRelatedArtistDetails</servlet-name>
-    <servlet-class>com.spotify.api.GetRelatedArtistDetails</servlet-class>
+    <display-name>AlbumDetails</display-name>
+    <servlet-name>AlbumDetails</servlet-name>
+    <servlet-class>com.spotify.api.AlbumDetails</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>GetRelatedArtistDetails</servlet-name>
-    <url-pattern>/GetRelatedArtistDetails</url-pattern>
+    <servlet-name>AlbumDetails</servlet-name>
+    <url-pattern>/AlbumDetails</url-pattern>
   </servlet-mapping>
 </web-app>

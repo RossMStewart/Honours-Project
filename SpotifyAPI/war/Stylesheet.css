@@ -15,6 +15,14 @@ h1
 	font-family:Arial,Helvetica,sans-serif;
 }
 
+h2 
+{
+	text-align:center;  
+	color:#000000; 
+	font-family:Arial,Helvetica,sans-serif;
+	text-decoration:underline;
+}
+
 #albumheader
 {
 	text-align:left;
@@ -40,6 +48,7 @@ right:0;
 text-align:center;
 width:auto;
 margin: 0 auto;
+font-family:Arial,Helvetica,sans-serif;
 }
 
 #icons
@@ -51,10 +60,12 @@ margin-right:50px;
 margin-top:50px;
 }
 
-#search_again
+#search_again, #go_back
 {
 	font-family:sans-serif;
+	text-decoration:none;
 }
+
 #artistresults
 {
  color:#000000;

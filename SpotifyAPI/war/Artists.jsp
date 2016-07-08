@@ -5,36 +5,42 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Result</title>
+<title>Search Results</title>
 <link rel="stylesheet" type="text/css" href="Stylesheet.css">
 </head>
 <body>
-<p id="search_again"><a href="Search.jsp">Search Again</a></p>
+<p><a id="search_again" href="Search.jsp">Search Again</a></p>
+<h2>Please click on an artist name below.</h2>
 <div class="center">
+
 <ul id="artistresults">
 <c:forEach var="artistlist" items="${artistList}" end="2">
-<li><a href="GetArtistDetails?method=doGet&param1=${artistlist.name}&param2=${artistlist.href}&param3=${artistlist.id}"> ${artistlist.name} </a></li>
+<li><a href="GetArtistDetails?method=doGet&param1=${artistlist.name}&param2=${artistlist.id}"> ${artistlist.name} </a></li>
 </c:forEach>
 </ul>
 <br>
+
 <ul id="artistresults">
 <c:forEach var="artistlist" items="${artistList}" begin="3" end="5">
-<li><a href="GetArtistDetails?method=doGet&param1=${artistlist.name}&param2=${artistlist.href}&param3=${artistlist.id}"> ${artistlist.name} </a></li>
+<li><a href="GetArtistDetails?method=doGet&param1=${artistlist.name}&param2=${artistlist.id}"> ${artistlist.name} </a></li>
 </c:forEach>
 </ul>
 <br>
+
 <ul id="artistresults">
 <c:forEach var="artistlist" items="${artistList}" begin="6" end="8">
 <li><a href="GetArtistDetails?method=doGet&param1=${artistlist.name}&param2=${artistlist.href}&param3=${artistlist.id}"> ${artistlist.name} </a></li>
 </c:forEach>
 </ul>
 <br>
+
 <ul id="artistresults">
 <c:forEach var="artistlist" items="${artistList}" begin="9" end="11">
 <li><a href="GetArtistDetails?method=doGet&param1=${artistlist.name}&param2=${artistlist.href}&param3=${artistlist.id}"> ${artistlist.name} </a></li>
 </c:forEach>
 </ul>
 <br>
+
 <ul id="artistresults">
 <c:forEach var="artistlist" items="${artistList}" begin="12" end="14">
 <li><a href="GetArtistDetails?method=doGet&param1=${artistlist.name}&param2=${artistlist.href}&param3=${artistlist.id}"> ${artistlist.name} </a></li>

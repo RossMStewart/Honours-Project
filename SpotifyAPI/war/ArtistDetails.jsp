@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="Stylesheet.css">
 </head>
 <body>
-<p id="search_again"><a href="Search.jsp">Search Again</a></p>
+<p><a id="search_again" href="Search.jsp">Search Again</a></p>
 <h1>${artistname} </h1>
 <div id="albumlistheader">
 <h1 id=albumheader>Albums</h1>
@@ -20,7 +20,7 @@
 <c:forEach var="image" items="${albumlist.images}" end="0">
 <ul id="albums">
 <div class="img-with-text">
-<li><img src="${image.url}" width="300" height="300"></li>
+<li><a href="AlbumDetails?method=doGet&param1=${albumlist.id}&param2=${albumlist.name}&param3=${image.url}"><img src="${image.url}" width="300" height="300"></a></li>
 <li>${albumlist.name}</li>
 </div>
 </ul>
@@ -34,7 +34,7 @@
 <c:forEach var="image" items="${albumlist.images}" end="0">
 <ul id="albums">
 <div class="img-with-text">
-<li><img src="${image.url}" width="300" height="300"></li>
+<li><a href="AlbumDetails?method=doGet&param1=${albumlist.id}&param2=${albumlist.name}&param3=${image.url}"><img src="${image.url}" width="300" height="300"></a></li>
 <li>${albumlist.name}</li>
 </div>
 </ul>
@@ -48,7 +48,7 @@
 <c:forEach var="image" items="${albumlist.images}" end="0">
 <ul id="albums">
 <div class="img-with-text">
-<li><img src="${image.url}" width="300" height="300"></li>
+<li><a href="AlbumDetails?method=doGet&param1=${albumlist.id}&param2=${albumlist.name}&param3=${image.url}"><img src="${image.url}" width="300" height="300"></a></li>
 <li>${albumlist.name}</li>
 </div>
 </ul>
@@ -62,7 +62,7 @@
 <c:forEach var="image" items="${albumlist.images}" end="0">
 <ul id="albums">
 <div class="img-with-text">
-<li><img src="${image.url}" width="300" height="300"></li>
+<li><a href="AlbumDetails?method=doGet&param1=${albumlist.id}&param2=${albumlist.name}&param3=${image.url}"><img src="${image.url}" width="300" height="300"></a></li>
 <li>${albumlist.name}</li>
 </div>
 </ul>
@@ -76,7 +76,7 @@
 <c:forEach var="image" items="${albumlist.images}" end="0">
 <ul id="albums">
 <div class="img-with-text">
-<li><img src="${image.url}" width="300" height="300"></li>
+<li><a href="AlbumDetails?method=doGet&param1=${albumlist.id}&param2=${albumlist.name}&param3=${image.url}"><img src="${image.url}" width="300" height="300"></a></li>
 <li>${albumlist.name}</li>
 </div>
 </ul>
@@ -90,7 +90,7 @@
 <c:forEach var="image" items="${albumlist.images}" end="0">
 <ul id="albums">
 <div class="img-with-text">
-<li><img src="${image.url}" width="300" height="300"></li>
+<li><a href="AlbumDetails?method=doGet&param1=${albumlist.id}&param2=${albumlist.name}&param3=${image.url}"><img src="${image.url}" width="300" height="300"></a></li>
 <li>${albumlist.name}</li>
 </div>
 </ul>
@@ -104,7 +104,7 @@
 <c:forEach var="image" items="${albumlist.images}" end="0">
 <ul id="albums">
 <div class="img-with-text">
-<li><img src="${image.url}" width="300" height="300"></li>
+<li><a href="AlbumDetails?method=doGet&param1=${albumlist.id}&param2=${albumlist.name}&param3=${image.url}"><img src="${image.url}" width="300" height="300"></a></li>
 <li>${albumlist.name}</li>
 </div>
 </ul>
@@ -122,7 +122,7 @@
 <div class="center">
 <ul id="artistresults">
 <c:forEach var="relartist" items="${relartistList}" end="2">
-<li><a href="GetRelatedArtistDetails?method=doGet&param1=${relartist.name}&param2=${relartist.href}&param3=${relartist.id}">${relartist.name} </a></li>
+<li><a href="GetArtistDetails?method=doGet&param1=${relartist.name}&param2=${relartist.id}">${relartist.name} </a></li>
 </c:forEach>
 </ul>
 
@@ -131,7 +131,7 @@
 
 <ul id="artistresults">
 <c:forEach var="relartist" items="${relartistList}" begin="3" end="5">
-<li><a href="GetRelatedArtistDetails?method=doGet&param1=${relartist.name}&param2=${relartist.href}&param3=${relartist.id}">${relartist.name} </a></li>
+<li><a href="GetArtistDetails?method=doGet&param1=${relartist.name}&param2=${relartist.id}">${relartist.name} </a></li>
 </c:forEach>
 </ul>
 
@@ -140,7 +140,7 @@
 
 <ul id="artistresults">
 <c:forEach var="relartist" items="${relartistList}" begin="6" end="8">
-<li><a href="GetRelatedArtistDetails?method=doGet&param1=${relartist.name}&param2=${relartist.href}&param3=${relartist.id}">${relartist.name} </a></li>
+<li><a href="GetArtistDetails?method=doGet&param1=${relartist.name}&param2=${relartist.id}">${relartist.name} </a></li>
 </c:forEach>
 </ul>
 
@@ -149,7 +149,7 @@
 
 <ul id="artistresults">
 <c:forEach var="relartist" items="${relartistList}" begin="9" end="11">
-<li><a href="GetRelatedArtistDetails?method=doGet&param1=${relartist.name}&param2=${relartist.href}&param3=${relartist.id}">${relartist.name} </a></li>
+<li><a href="GetArtistDetails?method=doGet&param1=${relartist.name}&param2=${relartist.id}">${relartist.name} </a></li>
 </c:forEach>
 </ul>
 
@@ -158,7 +158,7 @@
 
 <ul id="artistresults">
 <c:forEach var="relartist" items="${relartistList}" begin="12" end="14">
-<li><a href="GetRelatedArtistDetails?method=doGet&param1=${relartist.name}&param2=${relartist.href}&param3=${relartist.id}">${relartist.name} </a></li>
+<li><a href="GetArtistDetails?method=doGet&param1=${relartist.name}&param2=${relartist.id}">${relartist.name} </a></li>
 </c:forEach>
 </ul>
 
@@ -167,7 +167,7 @@
 
 <ul id="artistresults">
 <c:forEach var="relartist" items="${relartistList}" begin="15" end="17">
-<li><a href="GetRelatedArtistDetails?method=doGet&param1=${relartist.name}&param2=${relartist.href}&param3=${relartist.id}">${relartist.name} </a></li>
+<li><a href="GetArtistDetails?method=doGet&param1=${relartist.name}&param2=${relartist.id}">${relartist.name} </a></li>
 </c:forEach>
 </ul>
 
@@ -176,7 +176,7 @@
 
 <ul id="artistresults">
 <c:forEach var="relartist" items="${relartistList}" begin="18" end="19">
-<li><a href="GetRelatedArtistDetails?method=doGet&param1=${relartist.name}&param2=${relartist.href}&param3=${relartist.id}">${relartist.name} </a></li>
+<li><a href="GetArtistDetails?method=doGet&param1=${relartist.name}&param2=${relartist.id}">${relartist.name} </a></li>
 </c:forEach>
 </ul>
 
