@@ -8,6 +8,9 @@
 <link rel="stylesheet" type="text/css" href="Stylesheet.css">
 </head>
 <body>
+
+<!-- Form takes in the artist name and initiates the search when the Submit button is clicked -->
+
 <form action="/GetArtists" method="GET">
 <fieldset id="artist_search">
 <legend>Search for Artist</legend>   
