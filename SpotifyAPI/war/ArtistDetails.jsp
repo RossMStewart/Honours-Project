@@ -9,13 +9,17 @@
 <link rel="stylesheet" type="text/css" href="Stylesheet.css">
 </head>
 <body>
+<!-- Search Again link directs the user back to the Search page. -->
 <p><a id="search_again" href="Search.jsp">Search Again</a></p>
+<!-- Artist name -->
 <h1>${artistname} </h1>
 <div id="albumlistheader">
+<!-- Artist albums section -->
 <h1 id=albumheader>Albums</h1>
 </div>
 
 <div class="center">
+<!-- Displays the album covers in rows of three -->
 <c:forEach var="albumlist" items="${albumList}" end="2">
 <c:forEach var="image" items="${albumlist.images}" end="0">
 <ul id="albums">
@@ -116,10 +120,11 @@
 
 </div>
 
-
+<!-- Related artists section -->
 <h1 id="relatedheader">Related Artists</h1>
 
 <div class="center">
+<!-- Displays related artist names in rows of three -->
 <ul id="artistresults">
 <c:forEach var="relartist" items="${relartistList}" end="2">
 <li><a href="GetArtistDetails?method=doGet&param1=${relartist.name}&param2=${relartist.id}">${relartist.name} </a></li>
@@ -184,7 +189,7 @@
 <br>
 
 </div>
-
+<!-- Search Again link directs the user back to the Search page. -->
 <p id="search_again"><a href="Search.jsp">Search Again</a></p>
 
 </body>

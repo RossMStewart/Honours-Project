@@ -48,7 +48,8 @@ public class GetArtists extends HttpServlet {
 		      JsonObject artists = jsonObj.getJsonObject("artists");
 		      JsonArray items = artists.getJsonArray("items");			
 			  // Gets list of artist names from Spotify Web API			  
-		      List<JsonObject> artistList = items.getValuesAs(JsonObject.class); 		    	 		    	  		        		                    // Sends the list of artist names to the Artist.jsp file			
+		      List<JsonObject> artistList = items.getValuesAs(JsonObject.class);
+		      // Sends the list of artist names to the Artist.jsp file
 		     request.setAttribute("artistList", artistList);		   		    
 			 request.getRequestDispatcher("/Artists.jsp").forward(request, response);
 			   
