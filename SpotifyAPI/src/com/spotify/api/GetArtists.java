@@ -35,20 +35,20 @@ public class GetArtists extends HttpServlet {
 	@SuppressWarnings("deprecation")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		// Gets the artist name from the Search.jsp form
 		String getartist = request.getParameter("artist");
+		// Encodes the artist name to replace any spaces with +
 		String artist = (java.net.URLEncoder.encode(getartist));
+		// Places the artist name into the url
 		URL url = new URL("https://api.spotify.com/v1/search?q="+ artist +"&type=artist");
 		  try (InputStream is = url.openStream();
 		       JsonReader rdr = Json.createReader(is)) {
-		 
-		      JsonObject jsonObj = rdr.readObject();
-		      
+		       JsonObject jsonObj = rdr.readObject();
+			   
 		      JsonObject artists = jsonObj.getJsonObject("artists");
-		      JsonArray items = artists.getJsonArray("items");
-		      List<JsonObject> artistList = items.getValuesAs(JsonObject.class); 
-		    	 		    	  		        		              		    	  
-		    	  
-		    	  	     	       		      		      		      		    
+		      JsonArray items = artists.getJsonArray("items");			
+			  // Gets list of artist names from Spotify Web API			  
+		      List<JsonObject> artistList = items.getValuesAs(JsonObject.class); 		    	 		    	  		        		                    // Sends the list of artist names to the Artist.jsp file			
 		     request.setAttribute("artistList", artistList);		   		    
 			 request.getRequestDispatcher("/Artists.jsp").forward(request, response);
 			   

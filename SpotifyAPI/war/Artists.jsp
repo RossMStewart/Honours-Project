@@ -9,9 +9,14 @@
 <link rel="stylesheet" type="text/css" href="Stylesheet.css">
 </head>
 <body>
+
+<!-- Search Again link directs the user back to the Search page. -->
+
 <p><a id="search_again" href="Search.jsp">Search Again</a></p>
 <h2>Please click on an artist name below.</h2>
 <div class="center">
+
+<!-- Artist names are displayed in rows of three -->
 
 <ul id="artistresults">
 <c:forEach var="artistlist" items="${artistList}" end="2">
